@@ -1,0 +1,21 @@
+.wheel {
+    transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.indicator {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid yellow;
+}
+
+.home {
+    background-image: url('shellstation.jpeg')!important; /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}

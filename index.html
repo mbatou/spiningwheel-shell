@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shell Spin the Wheel Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .home {
+            position: relative;
+            background-image: url('shellstation.jpeg');
+            /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 230, 0, 0.5);
+            /* Yellow overlay with 50% opacity */
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-yellow-400 flex items-center justify-center h-screen home">
+    <div class="container mx-auto p-6 bg-white rounded-lg shadow-md text-center content">
+        <h1 class="text-3xl font-bold mb-6">Barkelou Ci Tabaski Bi</h1>
+        <form id="userForm" class="space-y-4">
+            <div>
+                <label for="name" class="block text-left mb-1 font-semibold">Nom</label>
+                <input type="text" id="name" name="name" required class="w-full p-2 border rounded">
+            </div>
+            <div>
+                <label for="phone" class="block text-left mb-1 font-semibold">Numéro de Téléphone</label>
+                <input type="tel" id="phone" name="phone" required class="w-full p-2 border rounded">
+            </div>
+            <button type="submit" class="w-full p-2 bg-red-500 text-white rounded hover:bg-yellow-400">Entrer</button>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div id="instructionsModal" class="modal flex">
+        <div class="modal-content">
+            <button class="close-button" id="closeModalButton">&times;</button>
+            <img src="logo.png" alt="Logo" class="mx-auto w-20 h-15">
+            <h2 class="text-2xl font-bold mb-4">Instructions</h2>
+            <p class="mb-4">Welcome to the Shell Spin the Wheel game! Here’s how you play:</p>
+            <ol class="list-decimal list-inside mb-4 text-left">
+                <li>Fill in your name and phone number on the form.</li>
+                <li>Click on "Entrer" to go to the spinning wheel page.</li>
+                <li>Click on the "Tenter ma chance" button to spin the wheel.</li>
+                <li>Wait for the wheel to stop to see if you’ve won a prize.</li>
+            </ol>
+            <p>Good luck!</p>
+        </div>
+    </div>
+    <script src="shell.js"></script>
+</body>
+</html>
